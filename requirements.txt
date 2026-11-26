@@ -1,0 +1,8 @@
+numpy>=1.26
+pandas>=2.2
+scikit-learn>=1.4
+matplotlib>=3.8
+pyyaml>=6.0
+pytest>=8.0
+# optional: independent cross-check of the Shapley implementation (tests/test_explain.py)
+shap>=0.44

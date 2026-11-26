@@ -1,0 +1,41 @@
+
+benign_session: 18 events, 11 windows, peak score 0.07 (window 11)
+Window  : off08@WS-OFF08  07:31:33 -> 07:33:48  (8 events)
+Status  : NOT FLAGGED   score 0.07  threshold 0.50
+
+Step breakdown (* = top-3):
+  step  event                                         surprisal  expected  contribution
+    1   firefox.exe -> external GET                      0.54      1.59      -0.006
+ *  2   firefox.exe -> file download_pdf                 2.83      1.59      +0.012
+ *  3   explorer.exe -> excel.exe                        3.15      2.17      +0.009
+    4   excel.exe -> file write_xlsx                     0.00      0.02      -0.000
+    5   explorer.exe -> winword.exe                      2.46      1.79      +0.005
+    6   winword.exe -> file write_doc                    0.00      0.01      -0.000
+ *  7   svchost.exe -> internal DNS                      4.36      1.98      +0.031
+    8   explorer.exe -> winword.exe                      3.43      2.87      +0.004
+  baseline score 0.013 + sum(contributions) +0.055 = score 0.068
+
+attack_session: 14 events, 7 windows, peak score 1.00 (window 7)
+Window  : asmith@WS-DEMO02  10:01:06 -> 10:02:44  (8 events)
+Status  : FLAGGED   score 1.00  threshold 0.50
+Reason  : Never-before-seen activity in the process sequence
+Top contributors:
+  1. winword.exe -> powershell.exe              +0.54   (step 3)
+  2. powershell.exe -> rundll32.exe             +0.10   (step 4)
+  3. rundll32.exe -> external POST              +0.10   (step 5)
+Analyst summary:
+  Flagged (score 1.00): a document application (winword.exe) launched a script interpreter (powershell.exe) (never seen in normal activity), then powershell.exe launched a system utility (rundll32.exe) (unseen), then rundll32.exe sent an HTTP POST to an external destination (unseen). ATT&CK: document spawning a script interpreter (macro-style execution) [T1204.002 / T1059], system binary proxy execution [T1218], command-and-control over web protocols [T1071.001].
+
+Step breakdown (* = top-3):
+  step  event                                         surprisal  expected  contribution
+    1   outlook.exe -> external CONNECT                  0.00      0.01      -0.000
+    2   outlook.exe -> winword.exe                       2.34      2.74      -0.001
+ *  3   winword.exe -> powershell.exe                   14.61      0.81      +0.539
+ *  4   powershell.exe -> rundll32.exe                  11.32      3.71      +0.098
+ *  5   rundll32.exe -> external POST                   11.32      3.71      +0.098
+    6   rundll32.exe -> cmd.exe                         11.32      3.71      +0.098
+    7   cmd.exe -> whoami.exe                            9.82      3.71      +0.058
+    8   rundll32.exe -> external POST                   11.32      3.71      +0.098
+  baseline score 0.013 + sum(contributions) +0.987 = score 1.000
+
+Saved plots to results/demo/

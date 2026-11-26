@@ -1,0 +1,15 @@
+timestamp,host,user,event_id,parent_image,image,dest_category,action
+2026-03-16T10:00:01Z,WS-DEMO02,asmith,4624,,,,interactive
+2026-03-16T10:00:05Z,WS-DEMO02,asmith,1,winlogon.exe,userinit.exe,,
+2026-03-16T10:00:07Z,WS-DEMO02,asmith,1,userinit.exe,explorer.exe,,
+2026-03-16T10:00:15Z,WS-DEMO02,asmith,1,explorer.exe,chrome.exe,,
+2026-03-16T10:00:33Z,WS-DEMO02,asmith,3,,chrome.exe,external,GET
+2026-03-16T10:01:02Z,WS-DEMO02,asmith,1,explorer.exe,outlook.exe,,
+2026-03-16T10:01:06Z,WS-DEMO02,asmith,3,,outlook.exe,external,CONNECT
+2026-03-16T10:01:48Z,WS-DEMO02,asmith,1,outlook.exe,winword.exe,,
+2026-03-16T10:01:55Z,WS-DEMO02,asmith,1,winword.exe,powershell.exe,,
+2026-03-16T10:02:03Z,WS-DEMO02,asmith,1,powershell.exe,rundll32.exe,,
+2026-03-16T10:02:10Z,WS-DEMO02,asmith,3,,rundll32.exe,external,POST
+2026-03-16T10:02:31Z,WS-DEMO02,asmith,1,rundll32.exe,cmd.exe,,
+2026-03-16T10:02:35Z,WS-DEMO02,asmith,1,cmd.exe,whoami.exe,,
+2026-03-16T10:02:44Z,WS-DEMO02,asmith,3,,rundll32.exe,external,POST

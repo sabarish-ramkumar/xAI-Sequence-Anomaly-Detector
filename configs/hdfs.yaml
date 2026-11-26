@@ -1,0 +1,22 @@
+dataset: hdfs
+data:
+  structured: data/hdfs/HDFS_100k.log_structured.csv
+  labels: data/hdfs/anomaly_label.csv
+split:
+  train_frac: 0.6            # earliest sessions form the training pool, the rest is the test set
+  val_frac_of_normal: 0.2    # held-out slice of the normal pool used to place the threshold
+model:
+  order: 2
+  tau: 2.0
+  quantile: 0.995
+  eos: true
+  pooling: lse
+  use_counts: false
+  novelty_penalty: 1.5
+explain:
+  top_k: 3
+  exact_limit: 12
+  n_permutations: 256
+output:
+  model: models/hdfs_detector.json
+  results: results/hdfs

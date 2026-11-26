@@ -1,0 +1,10 @@
+__pycache__/
+*.py[cod]
+*.pyo
+.pytest_cache/
+.coverage
+*.zip
+*.mp4
+.DS_Store
+Thumbs.db
+Task 1.pdf

@@ -1,0 +1,68 @@
+{
+  "dataset": "hdfs",
+  "train_sequences": 3688,
+  "detection": {
+    "windows": 3176,
+    "positives": 159,
+    "auroc": 0.8085627982314054,
+    "auprc": 0.6452628564164956,
+    "precision": 0.7368421052631579,
+    "recall": 0.6163522012578616,
+    "f1": 0.6712328767123288,
+    "fpr": 0.01160092807424594,
+    "tp": 98,
+    "fp": 35,
+    "fn": 61,
+    "tn": 2982
+  },
+  "ceiling": {
+    "anomalous_sessions": 159,
+    "identical_to_a_normal_training_session": 59,
+    "fraction_indistinguishable": 0.3710691823899371,
+    "recall_on_distinguishable": 0.98,
+    "max_attainable_recall": 0.6289308176100629
+  },
+  "explanation": {
+    "drop_top": 0.8322559567608546,
+    "flip_top": 0.8367346938775511,
+    "drop_random": 0.5442525060947404,
+    "flip_random": 0.5443877551020408,
+    "gap": 1.5531793538378466e-15,
+    "windows_explained": 98,
+    "max_efficiency_gap": 1.4210854715202004e-14
+  },
+  "ablation": {
+    "unigram, mean pooling (no order)": {
+      "auroc": 0.8032,
+      "auprc": 0.6285,
+      "precision": 0.9608,
+      "recall": 0.6164,
+      "f1": 0.751,
+      "fpr": 0.0013
+    },
+    "unigram, LSE pooling": {
+      "auroc": 0.7944,
+      "auprc": 0.6338,
+      "precision": 0.9608,
+      "recall": 0.6164,
+      "f1": 0.751,
+      "fpr": 0.0013
+    },
+    "bigram, mean pooling": {
+      "auroc": 0.8092,
+      "auprc": 0.646,
+      "precision": 0.7153,
+      "recall": 0.6164,
+      "f1": 0.6622,
+      "fpr": 0.0129
+    },
+    "bigram, LSE pooling (default)": {
+      "auroc": 0.8086,
+      "auprc": 0.6453,
+      "precision": 0.7368,
+      "recall": 0.6164,
+      "f1": 0.6712,
+      "fpr": 0.0116
+    }
+  }
+}

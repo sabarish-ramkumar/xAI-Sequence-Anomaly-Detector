@@ -1,0 +1,117 @@
+{
+  "dataset": "sysmon",
+  "train_sequences": 416,
+  "detection": {
+    "windows": 8220,
+    "positives": 580,
+    "auroc": 0.9842153367033761,
+    "auprc": 0.7506998367753545,
+    "precision": 0.6359649122807017,
+    "recall": 1.0,
+    "f1": 0.7774798927613941,
+    "fpr": 0.043455497382198956,
+    "tp": 580,
+    "fp": 332,
+    "fn": 0,
+    "tn": 7308
+  },
+  "campaigns": {
+    "campaigns": 38,
+    "detected": 38,
+    "median_fraction_of_chain_seen_at_alert": 0.14285714285714285,
+    "by_family": {
+      "bitsadmin_persistence": {
+        "detected": 6,
+        "total": 6
+      },
+      "hta_certutil_regsvr32": {
+        "detected": 6,
+        "total": 6
+      },
+      "lotl_admin_abuse": {
+        "detected": 6,
+        "total": 6
+      },
+      "maldoc_powershell_rundll32": {
+        "detected": 10,
+        "total": 10
+      },
+      "webshell_recon": {
+        "detected": 5,
+        "total": 5
+      },
+      "wmi_lateral_movement": {
+        "detected": 5,
+        "total": 5
+      }
+    }
+  },
+  "false_positive_breakdown": {
+    "false_positives": 332,
+    "containing_never_seen_event": 248,
+    "other": 84
+  },
+  "adaptation": {
+    "benign_sessions_absorbed": 88,
+    "windows_scored": 4149,
+    "before": {
+      "precision": 0.6759,
+      "recall": 1.0,
+      "f1": 0.8066,
+      "fpr": 0.0431,
+      "fp": 164
+    },
+    "after": {
+      "precision": 0.7617,
+      "recall": 1.0,
+      "f1": 0.8647,
+      "fpr": 0.0281,
+      "fp": 107
+    }
+  },
+  "explanation": {
+    "drop_top": 0.5606116316006244,
+    "flip_top": 0.5533333333333333,
+    "drop_random": 0.10069610730707754,
+    "flip_random": 0.102,
+    "hit_top": 0.96,
+    "hit_random": 0.506611111111111,
+    "gap": 4.788761979549842e-16,
+    "windows_explained": 150,
+    "max_efficiency_gap": 1.7763568394002505e-15
+  },
+  "ablation": {
+    "unigram, mean pooling (no order)": {
+      "auroc": 0.9519,
+      "auprc": 0.7043,
+      "precision": 0.6312,
+      "recall": 0.7672,
+      "f1": 0.6926,
+      "fpr": 0.034
+    },
+    "unigram, LSE pooling": {
+      "auroc": 0.9571,
+      "auprc": 0.707,
+      "precision": 0.6591,
+      "recall": 0.9034,
+      "f1": 0.7622,
+      "fpr": 0.0355
+    },
+    "bigram, mean pooling": {
+      "auroc": 0.9865,
+      "auprc": 0.829,
+      "precision": 0.6538,
+      "recall": 0.9603,
+      "f1": 0.7779,
+      "fpr": 0.0386
+    },
+    "bigram, LSE pooling (default)": {
+      "auroc": 0.9842,
+      "auprc": 0.7507,
+      "precision": 0.636,
+      "recall": 1.0,
+      "f1": 0.7775,
+      "fpr": 0.0435
+    }
+  }
+}

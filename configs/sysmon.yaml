@@ -1,0 +1,22 @@
+dataset: sysmon
+data:
+  events: data/sysmon/sysmon_events.csv
+windows:
+  size: 8          # events per window
+  stride: 1
+  idle_gap: 1800   # seconds of silence that close a session
+model:
+  order: 2
+  tau: 2.0         # log-sum-exp temperature for pooling per-step excess surprisal
+  quantile: 0.995  # validation quantile mapped to the 0.5 decision threshold
+  eos: false
+  pooling: lse
+  use_counts: false
+  novelty_penalty: 1.5
+explain:
+  top_k: 3
+  exact_limit: 12
+  n_permutations: 256
+output:
+  model: models/sysmon_detector.json
+  results: results/sysmon
