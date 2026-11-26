@@ -26,6 +26,8 @@ Every number above is computed by the model at run time; nothing in the demo or 
 ## Quick start
 
 ```bash
+python -m venv .venv
+source .venv/bin/activate                            # Windows PowerShell: .\.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
 python -m seqguard demo                              # benign + multi-stage attack session, with explanations
 python -m seqguard evaluate -c configs/sysmon.yaml   # metrics on the held-out days (add --ablation)
